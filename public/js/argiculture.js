@@ -419,7 +419,7 @@ $(document).ready(function() {
     
       let contract = web3.eth.contract(tokenMintContractABI).at(tokenMintContractAddress);
       
-      console.log("N: ", contract.functions.name().call())
+      console.log("N: ", contract.methods.name().call())
       //console.log(contract.tokenURI(utokenId));
       $('#touri').text(contract.functions.tokenURI(utokenId).call());
       //console.log(contract.ownerOf(utokenId));
