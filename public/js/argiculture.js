@@ -2,7 +2,7 @@ const { web3 } = window
 const selectedAddress = web3.eth.defaultAccount
 
 $(document).ready(function() {
-    const tokenMintContractAddress = "0x02068bd16Ec8f26B7F3Aba353693712Fd75191fb"
+    const tokenMintContractAddress = "0x178E08Dd31C88B20d81d4Ce15a2F2D6dD13E35C5"
     const tokenMintContractABI = [
       {
         "inputs": [],
