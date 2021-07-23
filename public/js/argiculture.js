@@ -419,12 +419,13 @@ $(document).ready(function() {
     
       let contract = web3.eth.contract(tokenMintContractABI).at(tokenMintContractAddress);
       
-      console.log(contract.tokenURI(utokenId));
-      $('#touri').text(contract.tokenURI(utokenId));
-      console.log(contract.ownerOf(utokenId));
-      $('#toner').text(contract.ownerOf(utokenId));
-      console.log(contract.balanceOf(account).toNumber());
-      $('#tobal').text(contract.balanceOf(account));
+      console.log("N: ", contract.functions.name().call())
+      //console.log(contract.tokenURI(utokenId));
+      $('#touri').text(contract.functions.tokenURI(utokenId).call());
+      //console.log(contract.ownerOf(utokenId));
+      $('#toner').text(contract.functions.ownerOf(utokenId).call());
+      //console.log(contract.balanceOf(account).toNumber());
+      $('#tobal').text(contract.functions.balanceOf(account).call());
     }
     
     async function itemUploadButton() {
