@@ -369,7 +369,7 @@ $(document).ready(function() {
     $('#linkSubmitDocument').click(function() { showView("viewSubmitDocument") });
     $('#linkVerifyDocument').click(function() { showView("viewVerifyDocument") });
     $('#itemUploadButton').click(itemUploadButton);
-
+    $('#documentVerifyButton').click(itemQueryButton);
 	
     $('#contractLink').text(tokenMintContractAddress);
     $('#contractLink').attr('href', 'https://ropsten.etherscan.io/address/' + tokenMintContractAddress);
@@ -397,11 +397,37 @@ $(document).ready(function() {
         $('#errorBox').show();
         $('#errorBox>header').click(function(){ $('#errorBox').hide(); });
     }
+
+    async function itemQueryButton() {
+      if (window.ethereum)
+      {
+        try {
+          await window.ethereum.enable();
+        } catch (err) {
+          return showError("Access to your Ethereum account rejected.");
+        }
+      }
+      if (typeof web3 === 'undefined'){
+        return showError("Please install MetaMask to access the Ethereum Web3 injected API from your Web browser.");
+      }
+      
+      let account = selectedAddress
+      console.log("C: " , account);
+    
+      let utokenId = $("#inputTokenId").val();
+      console.log("V: " , utokenId);
+    
+      let contract = web3.eth.contract(tokenMintContractABI).at(tokenMintContractAddress);
+      
+      console.log(contract.tokenURI(utokenId));
+      $('#touri').text(contract.tokenURI(utokenId));
+      console.log(contract.ownerOf(utokenId));
+      $('#toner').text(contract.ownerOf(utokenId));
+      console.log(contract.balanceOf(account).toNumber());
+      $('#tobal').text(contract.balanceOf(account));
+    }
     
     async function itemUploadButton() {
-        // if ($('#documentForUpload')[0].files.length == 0)
-            // return showError("Please select a file to upload.");
-
 		if (window.ethereum)
 			try {
 				await window.ethereum.enable();
@@ -412,10 +438,10 @@ $(document).ready(function() {
                 return showError("Please install MetaMask to access the Ethereum Web3 injected API from your Web browser.");
 			
 		let account = selectedAddress
-		console.log("my account " , account);
+		console.log("C: " , account);
 
 		let productName = $("#proname").val();
-		console.log("productName " , productName);
+		console.log("V: " , productName);
 		
 		let contract = web3.eth.contract(tokenMintContractABI).at(tokenMintContractAddress);
 

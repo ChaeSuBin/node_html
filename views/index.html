@@ -68,16 +68,30 @@ a
 
                
                 <div id="myTable"></div>
-
-               
-            
+                
         </section>
 
         <section id="viewVerifyDocument">
             <h1>Verify a Token</h1>
             <p>Blockchain users can verify documents by checking whether they exist in the "Document Registry" smart contract on the Ethereum blockchain decentralized network.</p>
-            <!-- <input type="file" id="documentToVerify" /><br/> -->
+            <label>URI:
+                <input type="text" id="inputTokenId" name="inputTokenId" value="" placeholder="Token Id">
+            </label>
             <input type="button" id="documentVerifyButton" value="Submit" />
+            <ul>
+                <li>
+                    <b>Token balance: </b> (at Ropsten testnet):
+                    <a href="#" id="tobal" target="_blank"></a>
+                </li>
+                <li>
+                    <b>Token owner: </b> (at Ropsten testnet):
+                    <a href="#" id="toner" target="_blank"></a>
+                </li>
+                <li>
+                    <b>Token URI: </b> (at Ropsten testnet):
+                    <a href="#" id="touri" target="_blank"></a>
+                </li>
+            </ul>
         </section>
     </main>
     
