@@ -1,14 +1,12 @@
 <!-- 
- index.html - Ethereum Wallet
- Author : Soto Jang (sotolabedu@gmail.com)
- Copyright (c) Sunstar Since 2015. All Rights Reserved. See LICENSE file.
+a
  -->
 
 <!DOCTYPE html>
 <html>
 <head>
     <meta charset="utf-8" />
-    <title>농장물 이력 관리 앱</title>
+    <title>DeployTest ERC721-Web3</title>
     <link rel="stylesheet" type="text/css" href="css/document-registry.css" />
     <script src="js/jquery-3.1.1.min.js"></script>
     <script src="js/sha256.min.js"></script>
@@ -19,8 +17,8 @@
 <body>
     <header id="menu">
         <a href="#" id="linkHome">Home</a>
-        <a href="#" id="linkSubmitDocument">농작물 이력 등록</a>
-        <a href="#" id="linkVerifyDocument">농작물 이력 검증</a>
+        <a href="#" id="linkSubmitDocument">mintToken</a>
+        <a href="#" id="linkVerifyDocument">queryToken</a>
     </header>
 
     <main>
@@ -33,13 +31,13 @@
       
 
         <section id="viewHome">
-            <h1>Agriculture DApp with MetaMask</h1>
-            Welcome to the "Agriculture DApp with MetaMask" DApp. This
+            <h1>DeployTest ERC721-Web3 with MetaMask</h1>
+            Welcome to the "DeployTest ERC721-Web3 with MetaMask" DApp. This
             decentralized app runs on the Etherereum blockchain network and
             holds a registry of items in a Solidity smart contract.
             <ul>
-                <li>농장물 이력관리를 확인 할 수 있습니다.</li>
-                <li><b>사용자는</b> 농장물 이력을 등록할 수 있습니다.</li>
+                <li>texttexttexttexttexttexttext.</li>
+                <li><b>text</b> texttexttexttexttexttexttext.</li>
                 <li>
                     Contract <b>address</b> (at Ropsten testnet):
                     <a href="#" id="contractLink" target="_blank"></a>
@@ -48,15 +46,15 @@
         </section>
 
         <section id="viewSubmitDocument">
-            <h1>농작물 이력관리 등록</h1>
-            <p>농작물을 등록해 주세요. 수량, 품명, 지역을 입력해 주시면 됩니다.</p>
+            <h1>mint Token</h1>
+            <p>regist token metadataURI. regist token metadataURI.</p>
             
-                <label>품명:
-                    <input type="text" id="proname" name="proname" value="감귤" placeholder="What is ..">
+                <label>URI:
+                    <input type="text" id="proname" name="proname" value="ipfs://" placeholder="What is ..">
                 </label>
                 <br>
-                <label>제출:
-                    <input type="button" id="itemUploadButton" value="submit">
+                <label>submit:
+                    <input type="button" id="itemUploadButton" value="mint">
                 </label>
 
                 <br>
@@ -76,13 +74,13 @@
         </section>
 
         <section id="viewVerifyDocument">
-            <h1>Verify a Document</h1>
+            <h1>Verify a Token</h1>
             <p>Blockchain users can verify documents by checking whether they exist in the "Document Registry" smart contract on the Ethereum blockchain decentralized network.</p>
             <!-- <input type="file" id="documentToVerify" /><br/> -->
             <input type="button" id="documentVerifyButton" value="Submit" />
         </section>
     </main>
     
-    <footer><a href="https://github.com/ChaeSuBin?tab=repositories">721demo</a> - Copyright &copy; chae</footer>
+    <footer><a href="https://github.com/ChaeSuBin?tab=repositories">721demo</a></footer>
 </body>
 </html>
