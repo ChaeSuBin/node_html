@@ -767,7 +767,8 @@ $(document).ready(function() {
     
       let contract = web3.eth.contract(tokenQueryContractABI).at(tokenMintContractAddress);
       
-      console.log("N: ", contract.methods.name().call())
+      contract.methods.name().call().then(receipt => {console.log(receipt);}).catch(err => {console.err(err);});
+      //console.log("N: ", contract.methods.name().call())
       //console.log(contract.tokenURI(utokenId));
       $('#touri').text(contract.functions.tokenURI(utokenId).call());
       //console.log(contract.ownerOf(utokenId));
