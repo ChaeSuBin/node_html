@@ -491,24 +491,30 @@ $(document).ready(function() {
       
       contract.balanceQuery(account, function (err, res){
         if(err){
-          return showError("Smart contract call failed: " + err);}
-        else{console.log(res);}
+          return showError("Smart contract call failed: " + err);
+        }
+        else{
+          console.log(res);
+        }
       });
 
       contract.cus_tokenURI(utokenId, function (err, res){
         if(err){
-          return showError("Smart contract call failed: " + err);}
-        else{console.log(res);}
+          return showError("Smart contract call failed: " + err);
+        }
+        else{
+          $('#touri').text(res);
+        }
       });
 
       contract.cus_ownerOf(utokenId, function (err, res){
         if(err){
-          return showError("Smart contract call failed: " + err);}
-        else{console.log(res);}
+          return showError("Smart contract call failed: " + err);
+        }
+        else{
+          $('#toner').text(res);
+        }
       });
-
-      // $('#touri').text(contract.functions.cus_tokenURI(utokenId).call());
-      // $('#toner').text(contract.functions.cus_ownerOf(utokenId).call());
       // $('#tobal').text(contract.methods.balanceQuery(account).call());
     }
     
