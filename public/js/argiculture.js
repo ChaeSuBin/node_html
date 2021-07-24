@@ -494,16 +494,22 @@ $(document).ready(function() {
           return showError("Smart contract call failed: " + err);}
         else{console.log(res);}
       });
-      const result = await contract.balanceQuery(account).call();
-      //console.log('r: ', result);
-      //contract.methods.name().call().then(receipt => {console.log(receipt);}).catch(err => {console.err(err);});
-      //console.log("N: ", contract.methods.name().call())
-      //console.log(contract.tokenURI(utokenId));
-      $('#touri').text(contract.functions.cus_tokenURI(utokenId).call());
-      //console.log(contract.ownerOf(utokenId));
-      $('#toner').text(contract.functions.cus_ownerOf(utokenId).call());
-      //console.log(contract.balanceOf(account).toNumber());
-      $('#tobal').text(contract.methods.balanceQuery(account).call());
+
+      contract.cus_tokenURI(utokenId, function (err, res){
+        if(err){
+          return showError("Smart contract call failed: " + err);}
+        else{console.log(res);}
+      });
+
+      contract.cus_ownerOf(utokenId, function (err, res){
+        if(err){
+          return showError("Smart contract call failed: " + err);}
+        else{console.log(res);}
+      });
+
+      // $('#touri').text(contract.functions.cus_tokenURI(utokenId).call());
+      // $('#toner').text(contract.functions.cus_ownerOf(utokenId).call());
+      // $('#tobal').text(contract.methods.balanceQuery(account).call());
     }
     
     async function itemUploadButton() {
