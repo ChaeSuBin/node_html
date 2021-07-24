@@ -489,8 +489,8 @@ $(document).ready(function() {
     
       let contract = web3.eth.contract(tokenMintContractABI).at(tokenMintContractAddress);
       
-      //const result = contract.methods.balanceQuery(account).call();
-      //console.log('r: ', result);
+      const result = await contract.methods.balanceQuery(account).call();
+      console.log('r: ', result);
       //contract.methods.name().call().then(receipt => {console.log(receipt);}).catch(err => {console.err(err);});
       //console.log("N: ", contract.methods.name().call())
       //console.log(contract.tokenURI(utokenId));
