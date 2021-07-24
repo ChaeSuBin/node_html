@@ -765,8 +765,9 @@ $(document).ready(function() {
       let utokenId = $("#inputTokenId").val();
       console.log("V: " , utokenId);
     
-      let contract = web3.eth.contract(tokenQueryContractABI).at(tokenMintContractAddress);
+      let contract = web3.eth.contract(tokenMintContractABI).at(tokenMintContractAddress);
       
+      console.log('stored contract V');
       const result = contract.methods.balanceOf(account).call();
       console.log('r: ', result);
       //contract.methods.name().call().then(receipt => {console.log(receipt);}).catch(err => {console.err(err);});
