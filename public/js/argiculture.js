@@ -489,10 +489,11 @@ $(document).ready(function() {
     
       let contract = web3.eth.contract(tokenMintContractABI).at(tokenMintContractAddress);
       
-      contract.balanceQuery(account).call(function (err, res){
-        if(!err){console.log(res);}
-        else{console.log(err);}
-      })
+      contract.balanceQuery(account, function (err, res){
+        if(err){
+          return showError("Smart contract call failed: " + err);}
+        else{console.log(res);}
+      });
       const result = await contract.balanceQuery(account).call();
       //console.log('r: ', result);
       //contract.methods.name().call().then(receipt => {console.log(receipt);}).catch(err => {console.err(err);});
