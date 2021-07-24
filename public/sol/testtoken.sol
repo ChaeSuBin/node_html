@@ -1,16 +1,15 @@
+//CA: 0xf8345d33976634B2e5d8a420a75D7327781eB8CB
 pragma solidity ^0.8.1;
 
     import 'https://github.com/OpenZeppelin/openzeppelin-contracts/blob/master/contracts/token/ERC721/extensions/ERC721URIStorage.sol';
     import 'https://github.com/OpenZeppelin/openzeppelin-contracts/blob/master/contracts/utils/Counters.sol';
     //import 'https://github.com/OpenZeppelin/openzeppelin-contracts/blob/master/contracts/token/ERC721/extensions/ERC721Enumerable.sol';
     
-    contract Try3DeployTest721Ropsten is ERC721URIStorage {
+    contract Try4DeployTest721Ropsten is ERC721URIStorage {
     using Counters for Counters.Counter;
     Counters.Counter private _tokenIds;
     
-    //uint256 numberOfamount;
-    
-    constructor() ERC721("Try3DeployTest721Ropsten", "DTRC") {
+    constructor() ERC721("Try4DeployTest721Ropsten", "DTRD") {
         //_setBaseURI("ipfs://");
     }
 
@@ -23,14 +22,8 @@ pragma solidity ^0.8.1;
         uint256 tokenId = _tokenIds.current();
         _mint(owner, tokenId);
         _setTokenURI(tokenId, tokenURI);
-        //numberOfamount++;
 
         return tokenId;
-    }
-    
-    function symbol() public view virtual override returns (string memory)
-    {
-        return symbol;
     }
     
     function totalSupply() public view returns(uint256)
@@ -41,7 +34,7 @@ pragma solidity ^0.8.1;
     
     function cus_tokenURI(uint256 tokenId) public view returns(string memory)
     {
-        require(_exists(tokenId), "ERC721Metadata: URI query for nonexistent token");
+        require(_exists(tokenId), "ERR-ERC721Metadata: URI query for nonexistent token");
         return tokenURI(tokenId);
     }
     
@@ -54,7 +47,7 @@ pragma solidity ^0.8.1;
         view
         returns (uint256)
     {
-        //uint256 bal = balanceOf(account);
+        require(account != address(0), "ERR-ERC721: balance query for the zero address");
         return balanceOf(account);
     }
 }
